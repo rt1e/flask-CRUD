@@ -1,1 +1,1 @@
-# lab_work_3
+This repository contains two branches master and develop. The develop branch contains the project materials that are in development, and the master branch contains the files that have been reviewed by mentors.
