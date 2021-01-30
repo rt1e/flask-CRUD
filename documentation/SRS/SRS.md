@@ -26,8 +26,7 @@ The mode is designed to view the list of loan applications, if it possible to di
 * User selects item “Loan applications”;
 * Application displays list of Loan applications.
 
-![Picture interface of where is viewing the loan applications list]
-(images/1_1_loan_applications_list.png)
+![Picture interface of where is viewing the loan applications list](.images/1_1_loan_applications_list.png)
 
 Pic. 1.1 View the Loan applications list.
 
@@ -68,8 +67,7 @@ Aggregate function: Loan_unterest = credit_amount * (loan_rate * (1+loan_rate)^c
 * Data don’t save in data base, then list of loan applications records is displaying to user.
 * If the user selects the menu item "Loan applications”, ”Clients” or "loans", the data will not be saved to the database and the corresponding form with updated data will be opened.
 
-![Picture interface of where is adding the loan application]
-(1_2_loan_applications_add.png)
+![Picture interface of where is adding the loan application](.images/1_2_loan_applications_add.png)
 
 Pic. 1.2 Add loan applications.
 
@@ -101,8 +99,7 @@ Pic. 1.2 Add loan applications.
 * Data don’t save in data base, then list of loan applications records is displaying to user.
 * If the user selects the menu item "Loan applications”, ”Clients” or "Loans", the data will not be saved to the database and the corresponding form with updated data will be opened.
 
-![Picture interface of where is editing the loan application]
-(1_3_loan_applications_edit.png)
+![Picture interface of where is editing the loan application](.images/1_3_loan_applications_edit.png)
 
 Pic. 1.3 Edit loan applications.
 
@@ -133,8 +130,7 @@ Pic. 1.3 Edit loan applications.
 * If error occurs, then error message displays;
 * If loan application record is successfully deleted, then list of loan applications without deleted records is displaying.
 
-![Picture interface of where is deleting the one loan application]
-(1_4_loan_applications_delete.png)
+![Picture interface of where is deleting the one loan application](.images/1_4_loan_applications_delete.png)
 
 Pic. 1.4 Delete loan application dialog.
 
@@ -147,9 +143,9 @@ Pic. 1.4 Delete loan application dialog.
 
 
 
-# # 2. Clients
+## 2. Clients
 
-# # # # 2.1 Display list of Clients
+#### 2.1 Display list of Clients
 
 This mode is intended for viewing and editing the clients list.
 
@@ -158,8 +154,7 @@ This mode is intended for viewing and editing the clients list.
 * User selects item “Clients”;
 * Application displays list of clients.
 
-![Picture interface of where is viewing the loan applications list]
-(2_1_clients_list_view.png)
+![Picture interface of where is viewing the loan applications list](.images/2_1_clients_list_view.png)
 
 Pic 2.1 View the clients list.
 
@@ -184,7 +179,7 @@ right of the date entry field);
 * If end date is blank, then filtering by start date only.
 * Updating data after selecting the filtering conditions is carried out by pressing the “Refresh” button.
 
-# # # # 2.2 Add client
+#### 2.2 Add client
 
 **Main scenario:**
 
@@ -204,8 +199,7 @@ right of the date entry field);
 * Data don’t save in data base, then list of clients records is displaying to user.
 * If the user selects the menu item "Loan applications”, ”Clients” or "Loans", the data will not be saved to the database and the corresponding form with updated data will be opened.
 
-![Picture interface of where is adding the client]
-(2_2_client_add.png)
+![Picture interface of where is adding the client](.images/2_2_client_add.png)
 
 Pic. 2.2 Add client.
 
@@ -223,7 +217,7 @@ Last name – maximum length of 45 characters;
 Passport number – unique, maximum length of 30 characters;
 Registration date – client’s registration date in format dd/mm/yyyy.
 
-# # # # 2.3 Edit client
+#### 2.3 Edit client
 
 **Main scenario:**
 
@@ -243,12 +237,11 @@ Registration date – client’s registration date in format dd/mm/yyyy.
 * Data don’t save in data base, then list of clients records is displaying to user.
 * If the user selects the menu item "Loan applications”, ”Clients” or "Loans", the data will not be saved to the database and the corresponding form with updated data will be opened.
 
-![Picture interface of where is editing the client]
-(2_3_client_edit.png)
+![Picture interface of where is editing the client](.images/2_3_client_edit.png)
 
 Pic. 2.3 Edit client.
 
-# # # # 2.4 Removing client
+#### 2.4 Removing client
 
 **Main scenario:**
 
@@ -259,8 +252,7 @@ Pic. 2.3 Edit client.
 * If error occurs, then error message displays;
 * If client record is successfully deleted, then list of clients without deleted records is displaying.
 
-![Picture interface of where is deleting the client]
-(2_4_client_delete.png)
+![Picture interface of where is deleting the client](.images/2_4_client_delete.png)
 
 Pic. 2.4 Delete client dialog .
 
@@ -273,9 +265,9 @@ Pic. 2.4 Delete client dialog .
 
 
 
-# # 3.Loans
+## 3.Loans
 
-# # # # 3.1 Display list of loans
+#### 3.1 Display list of loans
 
 This mode is intended for viewing and editing the loans list
 
@@ -284,8 +276,7 @@ This mode is intended for viewing and editing the loans list
 * User selects item “Loans”;
 * Application displays list of loans.
 
-![Picture interface of where is viewing the loan list]
-(3_1_loans_list_view.png)
+![Picture interface of where is viewing the loan list](.images/3_1_loans_list_view.png)
 
 Pic. 3.1 View the loans list.
 
@@ -300,7 +291,7 @@ Pic. 3.1 View the loans list.
 * In the loans list view mode, the user sets a loan rate filter and presses the refresh list button (to the right of the loan rate entry field);
 * The application will display a form to view the list of loans with updated data.
 
-# # # # 3.2 Add loan
+#### 3.2 Add loan
 
 **Main scenario:**
 
@@ -320,8 +311,7 @@ Pic. 3.1 View the loans list.
 * Data don’t save in data base, then list of loans records is displaying to user.
 * If the user selects the menu item "Loan applications”, ”Clients” or "Loans", the data will not be saved to the database and the corresponding form with updated data will be opened.
 
-![Picture interface of where is adding the loan]
-(3_2_loan_add.png)
+![Picture interface of where is adding the loan](.images/3_2_loan_add.png)
 
 Pic. 3.2 Add loan
 
@@ -335,7 +325,7 @@ Pic. 3.2 Add loan
 * Loan name - maximum length of 30 characters;
 * Loan rate (%) - minimal value is one percentage.
 
-# # # # 3.3 Edit loan
+#### 3.3 Edit loan
 
 **Main scenario:**
 
@@ -356,14 +346,13 @@ Pic. 3.2 Add loan
 
 If the user selects the menu item "Loan applications”, ”Clients” or "Loans", the data will not be saved to the database and the corresponding form with updated data will be opened.
 
-![Picture interface of where is editing the loan]
-(3_3_loan_edit.png)
+![Picture interface of where is editing the loan](.images/3_3_loan_edit.png)
 
 Pic. 3.3 Edit loan.
 
 
 
-# # # # 3.4 Removing the loan
+#### 3.4 Removing the loan
 
 **Main scenario:**
 
@@ -381,8 +370,7 @@ Cancel operation scenario:
 * A user press “Cancel” button;
 * The loan applications without changes are displaying.
 
-![Picture interface of where is deleting the loan]
-(3_4_loan_delete.png)
+![Picture interface of where is deleting the loan](.images/3_4_loan_delete.png)
 
 Pic. 3.4 Delete loan dialog.
 
