@@ -1,6 +1,6 @@
-#Issuance of loans
+# Issuance of loans
 
-##Vision
+## Vision
 
 “Issuance of loans” is web-application which allows users to record information about clients, credits and the loan applications.
 
@@ -17,8 +17,8 @@
 * Filtering by date for loan applications and clients;
 * Filtering by Loan interest rate.
 
-##1.Loan applications
-####1.1Display list of loan applications
+## 1.Loan applications
+#### 1.1Display list of loan applications
 The mode is designed to view the list of loan applications, if it possible to display the number of orders for a specified period of time.
 
 **Main scenario:**
@@ -27,7 +27,7 @@ The mode is designed to view the list of loan applications, if it possible to di
 * Application displays list of Loan applications.
 
 ![Picture interface of where is viewing the loan applications list]
-(1_1_loan_applications_list.png)
+(images/1_1_loan_applications_list.png)
 
 Pic. 1.1 View the Loan applications list.
 
@@ -48,7 +48,7 @@ Aggregate function: Loan_unterest = credit_amount * (loan_rate * (1+loan_rate)^c
 * In the loan applications list view mode, the user sets a date filter and presses the refresh list button (to the right of the date entry field);
 * The application will display a form to view the list of orders with updated data.
 
-####1.2 Add loan applications
+#### 1.2 Add loan applications
 
 **Main scenario:**
 
@@ -81,7 +81,7 @@ Pic. 1.2 Add loan applications.
 * loan term (mo.) - You must enter the loan term in months;
 * Add date - You must enter the date of issue of the loan to the client;
 
-####1.3 Edit loan applications.
+#### 1.3 Edit loan applications.
 
 **Main scenario:**
 
@@ -122,7 +122,7 @@ Pic. 1.3 Edit loan applications.
 * loan term (mo.) - Only whole numbers, the minimum number of months is 1, the maximum number of months is 60;
 * Add date - loan application add date in format dd/mm/yyyy.
 
-####1.4 Removing the order
+#### 1.4 Removing the order
 
 **Main scenario:**
 
@@ -147,9 +147,9 @@ Pic. 1.4 Delete loan application dialog.
 
 
 
-##2. Clients
+# # 2. Clients
 
-####2.1 Display list of Clients
+# # # # 2.1 Display list of Clients
 
 This mode is intended for viewing and editing the clients list.
 
@@ -184,7 +184,7 @@ right of the date entry field);
 * If end date is blank, then filtering by start date only.
 * Updating data after selecting the filtering conditions is carried out by pressing the “Refresh” button.
 
-####2.2 Add client
+# # # # 2.2 Add client
 
 **Main scenario:**
 
@@ -223,7 +223,7 @@ Last name – maximum length of 45 characters;
 Passport number – unique, maximum length of 30 characters;
 Registration date – client’s registration date in format dd/mm/yyyy.
 
-####2.3 Edit client
+# # # # 2.3 Edit client
 
 **Main scenario:**
 
@@ -248,7 +248,7 @@ Registration date – client’s registration date in format dd/mm/yyyy.
 
 Pic. 2.3 Edit client.
 
-####2.4 Removing client
+# # # # 2.4 Removing client
 
 **Main scenario:**
 
@@ -273,9 +273,9 @@ Pic. 2.4 Delete client dialog .
 
 
 
-##3.Loans
+# # 3.Loans
 
-####3.1 Display list of loans
+# # # # 3.1 Display list of loans
 
 This mode is intended for viewing and editing the loans list
 
@@ -300,7 +300,7 @@ Pic. 3.1 View the loans list.
 * In the loans list view mode, the user sets a loan rate filter and presses the refresh list button (to the right of the loan rate entry field);
 * The application will display a form to view the list of loans with updated data.
 
-####3.2 Add loan
+# # # # 3.2 Add loan
 
 **Main scenario:**
 
@@ -335,7 +335,7 @@ Pic. 3.2 Add loan
 * Loan name - maximum length of 30 characters;
 * Loan rate (%) - minimal value is one percentage.
 
-####3.3 Edit loan
+# # # # 3.3 Edit loan
 
 **Main scenario:**
 
@@ -363,7 +363,7 @@ Pic. 3.3 Edit loan.
 
 
 
-####3.4 Removing the loan
+# # # # 3.4 Removing the loan
 
 **Main scenario:**
 
