@@ -1,6 +1,10 @@
     body {
         font-size: 16px;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        max-width: 1400px;
+        min-width: 400px;
+        min-height: 600px;
+        margin: auto;
     }
 
     div {
@@ -8,88 +12,143 @@
         height: 80px;
     }
 
-    #header {
-        background-color: #0000FF;
+    .header {
+        background-image: linear-gradient(140deg, #EADEDB 0%,
+            #4682B4 50%, #0000CD 75%);
+        text-align: center;
     }
 
-    #header-main {
+    .header h2 {
         color: #191970;
-        margin: 0;
-        margin-left: 30px;
-        max-width: 220px;
-        max-height: 100%;
-        padding: 1px;
+        margin: auto;
+        padding: 20px;
+        width: 250px;
     }
 
-    #header-main h2:hover {
+    .header h2:hover {
         color: white;
+        text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
     }
 
     #main {
-        min-height: 400px;
+        height: auto;
+        width: auto;
     }
 
-    #leftSidebar {
-        background-color: #f5f5f5;
+    .Horizontal-Navigation-Bar {
         float: left;
-        height: 100%;
-        width: 20%;
-        margin: 0;
-        font-size: 20px;
+        width: auto;
+        height: auto;
     }
 
-    #content {
-        margin-left: 20%;
-        margin-top: 0;
-        margin-bottom: 0;
-        margin-right: 0;
-        height: 100%;
-        background-color: white;
-    }
-
-    ul.navbar {
-        list-style-type: none;
-        padding: 3%;
-        margin: auto;
-    }
-
-    ul.navbar li {
-        color: #337ab7;
-        margin: 0.5em 0;
-        padding: 0.3em;
-    }
-
-    ul.navbar a {
+    #add-button {
+        background-color: #337ab7;
+        color: white;
         text-decoration: none;
+        font-size: 18px;
+        font-synthesis: bold;
+        float: right;
+        background-color: #337ab7;
+        color: white;
+        padding: 15px 30px;
+        height: auto;
+        width: auto;
+        border-radius: 7px;
+        margin: 10px;
+        margin-right: 6%;
     }
 
-    a:link {
-        color: #337ab7;
-    }
-
-    a:visited {
-        color: #337ab7;
-    }
-
-    a.active {
-        margin: 5 0;
-        padding: 7;
-        background-color: #428bca;
-        color: #fff;
-        border-radius: 4px;
-        padding: 4px;
-    }
-
-    a:hover {
-        margin: 5 0;
-        padding: 9px;
+    #add-button:hover {
         background: #ADD8E6;
         color: #fff;
         border-radius: 7px;
     }
 
+    .#add-button:link {
+        color: #fff;
+    }
+
+    #add-button:visited {
+        color: #fff;
+    }
+
+    .Horizontal-Navigation-Bar li a:link {
+        color: #337ab7;
+    }
+
+    .Horizontal-Navigation-Bar li a:visited {
+        color: #337ab7;
+    }
+
+    .Horizontal-Navigation-Bar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f5f5f5;
+        border-radius: 7px;
+    }
+
+
+    .Horizontal-Navigation-Bar li {
+        float: left;
+        color: #337ab7;
+        font-size: 18px;
+        font-synthesis: bold;
+    }
+
+    .Horizontal-Navigation-Bar li a {
+        display: block;
+        color: #337ab7;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .Horizontal-Navigation-Bar li a:hover:not(.active) {
+        margin: 5 0;
+        padding: 15px;
+        background: #ADD8E6;
+        color: #fff;
+        border-radius: 7px;
+    }
+
+    .Horizontal-Navigation-Bar ul li a.active {
+        margin: 5 0;
+        padding: 7;
+        background-color: #428bca;
+        color: #fff;
+        border-radius: 7px;
+        padding: 15px;
+    }
+
+    #form_date {
+        font-size: 20px;
+        float: left;
+        width: auto;
+        height: auto;
+        margin-top: 2%;
+        margin-left: 6%;
+    }
+
+    #refresh-position {
+        float: right;
+        width: auto;
+        height: auto;
+        margin-right: 6%;
+    }
+
+    #refresh img:hover {
+        width: 110%;
+        height: 110%;
+    }
+
+    #content {
+        height: auto;
+    }
+
     table {
-        margin: 15px;
+        margin: auto;
         border-spacing: 0;
         border-collapse: collapse;
         text-align: left;
@@ -116,10 +175,11 @@
     }
 
     .pagination {
-        float: right;
         display: inline-block;
         height: auto;
-        margin: 15px;
+        margin: auto;
+        margin-top: 2%;
+        margin-left: 35%;
     }
 
     .pagination a {
@@ -131,7 +191,7 @@
     }
 
     .pagination a.active {
-        background-color: #191970;
+        background-color: #337ab7;
         color: white;
         border-radius: 5px;
     }
@@ -140,32 +200,7 @@
         background-color: #ddd;
     }
 
-    #footer {
-        background-color: #f5f5f5;
-    }
-
-    div.footer-main:before {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-    }
-
-    div.footer-main p {
-        display: inline-block;
-        vertical-align: middle;
-    }
-
-    div.footer-main {
-        text-align: center;
-        margin: 0;
-    }
-
-    div.intro{
-        margin: 30px;
-    }
-
- /*   * {
+    /*   * {
         background-color: white;
         border: 1px solid black;
     }
