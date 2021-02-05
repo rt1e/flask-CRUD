@@ -122,6 +122,15 @@
         padding: 15px;
     }
 
+    #Add_loan_issuance {
+        margin-left: 32px;
+    }
+
+    #Edit_loan_issuance {
+        margin-left: 32px;
+    }
+
+
     #form_date {
         font-size: 20px;
         float: left;
@@ -200,7 +209,84 @@
         background-color: #ddd;
     }
 
-    /*   * {
+    .container1 * {
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    .container1 input[type=text],
+    select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    .container1 label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .container1 input[type=submit] {
+        background-color: #428bca;
+        color: white;
+        padding: 15px 35px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 45%;
+    }
+
+    .container1 input[type=submit]:hover {
+        background: #ADD8E6;
+        color: #fff;
+    }
+
+    .container1 {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        height: auto;
+        margin: 5%;
+        margin-top: 0;
+    }
+
+    .container1 .col-25 {
+        float: left;
+        width: 25%;
+        margin-top: 6px;
+    }
+
+    .container1 .col-75 {
+        float: left;
+        width: 70%;
+        margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .container1 .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    div.col-75.add-date {
+        font-size: 26px;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+
+        .container1 .col-25,
+        .container1 .col-75,
+        .container1 input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+
+ /*   * {
         background-color: white;
         border: 1px solid black;
     }
