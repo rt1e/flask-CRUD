@@ -59,7 +59,7 @@
                         <td>12</td>
                         <td>16.52</td>
                         <td><a href="edit_loan_issuance.html" id="refresh"><img src="images/edit.png"></td></a>
-                        <td><img src="images/delete.png"></td>
+                        <td><button id="delete-button" type="button" onclick="document.getElementById('delete_block').style.display='block'"><img src="images/delete.png"></button></td>
                     </tr>
                     <tr>
                         <td>Best2.0</td>
@@ -70,7 +70,7 @@
                         <td>20</td>
                         <td>11.91</td>
                         <td><a href="edit_loan_issuance.html" id="refresh"><img src="images/edit.png"></td></a>
-                        <td><img src="images/delete.png"></td>
+                        <td><button id="delete-button" type="button" onclick="document.getElementById('delete_block').style.display='block'"><img src="images/delete.png"></button></td>
                     </tr>
                     <tr>
                         <td>SuperMaxi</td>
@@ -81,7 +81,7 @@
                         <td>15</td>
                         <td>16.83</td>
                         <td><a href="edit_loan_issuance.html" id="refresh"><img src="images/edit.png"></td></a>
-                        <td><img src="images/delete.png"></td>
+                        <td><button id="delete-button" type="button" onclick="document.getElementById('delete_block').style.display='block'"><img src="images/delete.png"></button></td>
                     </tr>
                 </tbody>
             </table>
@@ -94,6 +94,17 @@
                 <a href="#">5</a>
                 <a href="#">6</a>
                 <a href="#">&raquo;</a>
+            </div>
+            <div id="delete_block" style="display: none;">
+                <div id="delete_block-title">
+                    <h3>Delete loan application</h3>
+                </div>
+                <div id="delete_block-description-picture">
+                    <img src="images/warning.png">
+                    <h4>Please confirm delete loan application</h4>
+                </div>
+                <button class="delete_block-button" id="delete_block-bitton-Yes" type="button" onclick="document.getElementById('delete_block').style.display='none'">Yes</button>
+                <button class="delete_block-button" id="delete_block-bitton-Cancel" type="button" onclick="document.getElementById('delete_block').style.display='none'">Cancel</button>
             </div>
         </div>
     </div>

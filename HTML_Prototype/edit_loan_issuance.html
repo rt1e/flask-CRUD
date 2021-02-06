@@ -19,68 +19,97 @@
                     <li><a href="Loan_issuance_list.html">Loan issuance list</a>
                     <li><a href="#">List of clients</a>
                     <li><a href="#">Credit list</a>
-                    <li><a class="active" id="Edit_loan_issuance">Edit loan issuance</a>
+                    <li><a class="active" id="Add_loan_issuance">Edit loan issuance</a>
                 </ul>
             </div>
         </div>
         <div id="content">
             <div class="container1">
-                <form action="#">
-                    <div class="row">
-                        <div class="col-25">
-                            <label class="container1-label" for="Loan_name">Loan name</label>
-                        </div>
-                        <div class="col-75">
-                            <select id="Loan_name" name="Loan_name">
-                                <option value="Comfort+">Comfort+</option>
-                                <option value="Best2.0">Best2.0</option>
-                                <option value="SuperMaxi">SuperMaxi</option>
-                            </select>
+                <div class="row">
+                    <div class="col-25">
+                        <label class="container1-label" for="Loan_name">Loan name</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="Loan_name" name="Loan_name" autofocus>
+                            <option value="Comfort+">Comfort+</option>
+                            <option value="Best2.0">Best2.0</option>
+                            <option value="SuperMaxi">SuperMaxi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="Client">Client</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="List_of_clients-select" name="List_of_clients">
+                            <option value="Viktor Petrov">Viktor Petrov</option>
+                            <option value="Petr Viktorovich">Petr Viktorovich</option>
+                            <option value="Viktoria Pavlovna">Viktoria Pavlovna</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="add_date">Add date</label>
+                    </div>
+                    <div class="col-75 add-date">
+                        <input type="date" id="add_date" name="add_date" required>
+                        <div class="add_date-error-class">
+                            <p id="add_date-error"></p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="Client">Client</label>
-                        </div>
-                        <div class="col-75">
-                            <select id="List_of_clients-select" name="List_of_clients">
-                                <option value="Viktor Petrov">Viktor Petrov</option>
-                                <option value="Petr Viktorovich">Petr Viktorovich</option>
-                                <option value="Viktoria Pavlovna">Viktoria Pavlovna</option>
-                            </select>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="loan_amount">loan amount</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="number" id="loan_amount-input" name="loan_amount" placeholder="loan amount in $.." required autocomplete="on" max="10000" min="100">
+                        <div class="loan_amount-input-class">
+                            <p id="loan_amount-input-error"></p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="add_date">Add date</label>
-                        </div>
-                        <div class="col-75 add-date">
-                            <input type="date" id="add_date" name="add_date">
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="loan_term">loan term</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="number" id="loan_term-input" name="loan_term" placeholder="loan term in months.." required autocomplete="on" min="1" max="60">
+                        <div class="loan_term-input-class">
+                            <p id="loan_term-input-error"></p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="loan_amount">loan amount</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" id="loan_amount-input" name="loan_amount" placeholder="loan amount in $..">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="loan_term">loan term</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" id="loan_term-input" name="loan_term" placeholder="loan term in months..">
-                        </div>
-                    </div>
-                    <div class="row Submit-form">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
+                </div>
+                <div class="row Submit-form">
+                    <input type="submit" value="Submit" onclick="myFunction()">
+                </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+    function myFunction() {
+        var inpObj = document.getElementById("add_date");
+        if (!inpObj.checkValidity()) {
+            document.getElementById("add_date-error").innerHTML = inpObj.validationMessage;
+        } else {
+            document.getElementById("add_date-error").innerHTML = "<span style='color:green'>" + "Input OK" + "</span>";
+        }
+        var inpObj = document.getElementById("loan_amount-input");
+        if (!inpObj.checkValidity()) {
+            document.getElementById("loan_amount-input-error").innerHTML = inpObj.validationMessage;
+        } else {
+            document.getElementById("loan_amount-input-error").innerHTML = "<span style='color:green'>" + "Input OK" + "</span>";
+        }
+        var inpObj = document.getElementById("loan_term-input");
+        if (!inpObj.checkValidity()) {
+            document.getElementById("loan_term-input-error").innerHTML = inpObj.validationMessage;
+        } else {
+            document.getElementById("loan_term-input-error").innerHTML = "<span style='color:green'>" + "Input OK" + "</span>";
+        }
+    }
+    </script>
 </body>
 
 </html>
