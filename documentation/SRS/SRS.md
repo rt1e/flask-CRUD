@@ -373,5 +373,3 @@ Cancel operation scenario:
 ![Picture interface of where is deleting the loan](./images/3_4_loan_delete.png)
 
 Pic. 3.4 Delete loan dialog.
-
-
