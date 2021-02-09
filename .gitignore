@@ -1,5 +1,7 @@
 documentation/sketches
 HTML_Prototype/styletest.css
 HTML_Prototype/test.html
-venv/
+ISSUANCE-OF-LOANS-APP/venv
 .idea/
+secrets.py
+ISSUANCE-OF-LOANS-APP/node_modules/

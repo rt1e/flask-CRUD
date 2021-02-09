@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+    <div id="header">
+        <h2>Issuance of loans</h2>
+    </div>
+    <div id="main">
+        <div id="leftSidebar">
+            <ul class="navbar">
+                {% block HorizontalNavigationBarIndex %}
+                {% endblock %}
+            </ul>
+        </div>
+        {% block body %}{% endblock %}
+    </div>
+    <div id="footer">
+        <div class="footer-main">
+            <p>FOOTER</p>
+        </div>
+    </div>
+</body>
+
+</html>
