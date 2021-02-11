@@ -13,23 +13,11 @@
     </div>
     <div id="main">
         <div class="menu-and-add-button">
-            <div class="Horizontal-Navigation-Bar">
-                {% block HorizontalNavigationBar %}
-                {% endblock %}
-            </div>
-            <a href="add_loan_issuance.html" id="add-button">Add</a>
+            {% block HorizontalNavigationBar %}
+            {% endblock %}
         </div>
-        <div id="add-Date-and-refresh">
-            <form action="#" id="form_date">
-                <label for="date_from">Date from: </label>
-                <input type="date" id="date_from" name="date_from">
-                <label for="date_by">by: </label>
-                <input type="date" id="date_by" name="date_by">
-            </form>
-            <div id="refresh-position">
-                <a href="#" id="refresh"><img src="{{ url_for('static', filename='images/refresh.png') }}" alt="refresh"></a>
-            </div>
-        </div>
+        {% block addDateandrefresh %}
+        {% endblock %}
         <div id="content">
             {% block content %}
             {% endblock %}
