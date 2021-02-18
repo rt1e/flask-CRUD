@@ -12,20 +12,19 @@
 <a href="/add_loan_issuance" id="add-button">Add</a>
 {% endblock %}
 {% block addDateandrefresh %}
-        <div id="add-Date-and-refresh">
-            <form action="#" id="form_date">
-                <label for="date_from">Date from: </label>
-                <input type="date" id="date_from" name="date_from">
-                <label for="date_by">by: </label>
-                <input type="date" id="date_by" name="date_by">
-            </form>
-            <div id="refresh-position">
-                <a href="#" id="refresh"><img src="{{ url_for('static', filename='images/refresh.png') }}" alt="refresh"></a>
-            </div>
-        </div>
+<div id="add-Date-and-refresh">
+    <form action="#" id="form_date">
+        <label for="date_from">Date from: </label>
+        <input type="date" id="date_from" name="date_from">
+        <label for="date_by">by: </label>
+        <input type="date" id="date_by" name="date_by">
+    </form>
+    <div id="refresh-position">
+        <a href="#" id="refresh"><img src="{{ url_for('static', filename='images/refresh.png') }}" alt="refresh"></a>
+    </div>
+</div>
 {% endblock %}
 {% block content %}
-
 <table>
     <thead>
         <tr>
@@ -50,8 +49,8 @@
             <td>{{ el.loan_amount}}</td>
             <td>{{ el.loan_term}}</td>
             <td>&nbsp;</td>
-            <td><a href="edit_loan_issuance" id="refresh"><img src="{{ url_for('static', filename='images/edit.png') }}"></td></a>
-            <td><button id="delete-button" type="button" onclick="document.getElementById('delete_block').style.display='block'"><img src="{{ url_for('static', filename='images/delete.png') }}"></button></td>
+            <td><a href="/loan_issuance_list/{{ el.id }}/edit" id="refresh"><img src="{{ url_for('static', filename='images/edit.png') }}"></td></a>
+            <td><button class="delete-button" id="{{ el.id }}" type="button" onclick="del_function(this.id)"><img src="{{ url_for('static', filename='images/delete.png') }}"></button></td>
         </tr>
         {% endfor %}
     </tbody>
@@ -74,7 +73,13 @@
         <img src="{{ url_for('static', filename='images/warning.png') }}">
         <h4>Please confirm delete loan application</h4>
     </div>
-    <button class="delete_block-button" id="delete_block-bitton-Yes" type="button" onclick="document.getElementById('delete_block').style.display='none'">Yes</button>
+    <button class="delete_block-button" id="delete_block-bitton-Yes" type="button" onclick="document.getElementById('delete_block').style.display='none'"><a id="delete_block-bitton-Yes-href" style="color:white; text-decoration: none;" href="#">Yes</a></button>
     <button class="delete_block-button" id="delete_block-bitton-Cancel" type="button" onclick="document.getElementById('delete_block').style.display='none'">Cancel</button>
 </div>
+<script type="text/javascript">
+function del_function(clicked_id) {
+    document.getElementById('delete_block').style.display = 'block';
+    document.getElementById('delete_block-bitton-Yes-href').href = "/loan_issuance_list/"+clicked_id+"/del";
+}
+</script>
 {% endblock %}

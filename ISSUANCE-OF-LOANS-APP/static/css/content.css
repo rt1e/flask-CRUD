@@ -383,7 +383,7 @@
         cursor: pointer;
     }
 
-    #delete-button {
+    .delete-button {
         margin: auto;
         border: 0px;
         background-color: initial;
