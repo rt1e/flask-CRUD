@@ -1,1 +1,14 @@
-This repository contains two branches master and develop. The develop branch contains the project materials that are in development, and the master branch contains the files that have been reviewed by mentors.
+Import and export mysql database
+================================
+
+Importing:
+
+```
+gunzip < /path/to/outputfile.sql.gz | mysql -u USER -pPASSWORD DATABASE
+```
+
+Dumpping:
+
+```
+mysqldump -u USER -pPASSWORD DATABASE | gzip > /path/to/outputfile.sql.gz
+```
