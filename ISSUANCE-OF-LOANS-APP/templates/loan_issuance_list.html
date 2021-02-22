@@ -25,46 +25,50 @@
 </div>
 {% endblock %}
 {% block content %}
-<table>
-    <thead>
-        <tr>
-            <td>loan name</td>
-            <td>client passport number</td>
-            <td>add date</td>
-            <td>loan rate(%)</td>
-            <td>loan amount($)</td>
-            <td>loan term(mo.)</td>
-            <td>loan interest($)</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-    </thead>
-    <tbody>
+{% if Loan_issuance_list_table|length > 0 %}
+    <table>
+        <thead>
+            <tr>
+                <td>loan name</td>
+                <td>client passport number</td>
+                <td>add date</td>
+                <td>loan rate(%)</td>
+                <td>loan amount($)</td>
+                <td>loan term(mo.)</td>
+                <td>loan interest($)</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </thead>
+        <tbody>
         {% for el in Loan_issuance_list_table %}
-        <tr>
-            <td>{{ el.loan_name}}</td>
-            <td>{{ el.client_passport_number}}</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>{{ el.loan_amount}}</td>
-            <td>{{ el.loan_term}}</td>
-            <td>&nbsp;</td>
-            <td><a href="/loan_issuance_list/{{ el.id }}/edit" id="refresh"><img src="{{ url_for('static', filename='images/edit.png') }}"></td></a>
-            <td><button class="delete-button" id="{{ el.id }}" type="button" onclick="del_function(this.id)"><img src="{{ url_for('static', filename='images/delete.png') }}"></button></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<div class="pagination">
-    <a href="#">&laquo;</a>
-    <a class="active" href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">&raquo;</a>
-</div>
+            <tr>
+                <td>{{ el.loan_name}}</td>
+                <td>{{ el.client_passport_number}}</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>{{ el.loan_amount}}</td>
+                <td>{{ el.loan_term}}</td>
+                <td>&nbsp;</td>
+                <td><a href="/loan_issuance_list/{{ el.id }}/edit" id="refresh"><img src="{{ url_for('static', filename='images/edit.png') }}"></td></a>
+                <td><button class="delete-button" id="{{ el.id }}" type="button" onclick="del_function(this.id)"><img src="{{ url_for('static', filename='images/delete.png') }}"></button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a class="active" href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+    </div>
+    {% endfor %}
+    {% else %}
+        <p style="text-align: center; font-size: 20px; font-weight: bold; margin-top: 5%">There are currently no loan applications.</p>
+{% endif %}
 <div id="delete_block" style="display: none;">
     <div id="delete_block-title">
         <h3>Delete loan application</h3>

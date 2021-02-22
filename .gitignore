@@ -2,7 +2,6 @@ documentation/sketches
 HTML_Prototype/styletest.css
 HTML_Prototype/test.html
 .idea/
-ISSUANCE-OF-LOANS-APP/secrets.py
 ISSUANCE-OF-LOANS-APP/node_modules/
 ISSUANCE-OF-LOANS-APP/__pycache__
 venv/
