@@ -1,9 +1,9 @@
 import secrets
-
-from flask import Flask, render_template, url_for, request, redirect
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
+from flask import Flask, redirect, render_template, request, url_for
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://{0}:{1}@{2}/{3}".format(
@@ -12,6 +12,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://{0}:{1}@{2}/{3}".format(
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
 class loan_issuance_list(db.Model):
@@ -116,9 +117,7 @@ def edit_loan_issuance(id):
             return "error while editing"
     else:
 
-        return render_template(
-            "edit_loan_issuance.html", edit_element=edit_element
-        )
+        return render_template("edit_loan_issuance.html", edit_element=edit_element)
 
 
 @app.route("/loan_issuance_list/<int:id>/del")
