@@ -53,6 +53,7 @@
                 <td><a href="/loan_issuance_list/{{ el.id }}/edit" id="refresh"><img src="{{ url_for('static', filename='images/edit.png') }}"></td></a>
                 <td><button class="delete-button" id="{{ el.id }}" type="button" onclick="del_function(this.id)"><img src="{{ url_for('static', filename='images/delete.png') }}"></button></td>
             </tr>
+        {% endfor %}
         </tbody>
     </table>
     <div class="pagination">
@@ -65,7 +66,6 @@
         <a href="#">6</a>
         <a href="#">&raquo;</a>
     </div>
-    {% endfor %}
     {% else %}
         <p style="text-align: center; font-size: 20px; font-weight: bold; margin-top: 5%">There are currently no loan applications.</p>
 {% endif %}

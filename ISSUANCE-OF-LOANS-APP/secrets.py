@@ -1,4 +1,4 @@
 dbhost = 'localhost'
-dbuser = 'issuance_of_loans_user'
-dbpass = '00MTs8539!'
-dbname = 'issuance_of_loans_database'
+dbuser = 'test3'
+dbpass = '0000'
+dbname = 'issuance_of_loans'
