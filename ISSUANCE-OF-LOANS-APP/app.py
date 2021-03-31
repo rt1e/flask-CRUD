@@ -1,7 +1,8 @@
+# -*- coding utf-8 -*-
 import secrets
 from datetime import datetime
 
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, render_template, redirect, request, url_for
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
@@ -15,7 +16,9 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
-class loan_issuance_list(db.Model):
+class Loan_issuance_list(db.Model):
+
+    __tablename__ = "loan_issuance_list"
     id = db.Column(db.Integer, primary_key=True)
     loan_name = db.Column(db.String(50), nullable=False)
     client_passport_number = db.Column(db.String(50), nullable=False)
@@ -27,7 +30,9 @@ class loan_issuance_list(db.Model):
         return "<loan_issuance_list %r>" % self.id
 
 
-class clients_list(db.Model):
+class Clients_list(db.Model):
+
+    __tablename__ = "clients_list"
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
@@ -46,7 +51,9 @@ class clients_list(db.Model):
         return "<clients_list %r>" % self.id
 
 
-class loans_list(db.Model):
+class Loans_list(db.Model):
+
+    __tablename__ = "loans_list"
     id = db.Column(db.Integer, primary_key=True)
     loan_name = db.Column(db.String(50), nullable=False)
     loan_rate = db.Column(db.Float, nullable=False)
@@ -67,9 +74,9 @@ def index():
 
 
 @app.route("/loan_issuance_list")
-def Loan_issuance_list():
-    Loan_issuance_list_table = loan_issuance_list.query.order_by(
-        loan_issuance_list.id.desc()
+def Loan_issuance_list_func():
+    Loan_issuance_list_table = Loan_issuance_list.query.order_by(
+        Loan_issuance_list.id.desc()
     ).all()
     return render_template(
         "loan_issuance_list.html", Loan_issuance_list_table=Loan_issuance_list_table
@@ -84,7 +91,7 @@ def add_loan_issuance():
         loan_amount = request.form["loan_amount"]
         loan_term = request.form["loan_term"]
 
-        Loan_issuance_list = loan_issuance_list(
+        Loan_issuance_list_form = Loan_issuance_list(
             loan_name=loan_name,
             client_passport_number=client_passport_number,
             loan_amount=loan_amount,
@@ -92,7 +99,7 @@ def add_loan_issuance():
         )
 
         try:
-            db.session.add(Loan_issuance_list)
+            db.session.add(Loan_issuance_list_form)
             db.session.commit()
             return redirect("/loan_issuance_list")
         except:
@@ -103,7 +110,7 @@ def add_loan_issuance():
 
 @app.route("/loan_issuance_list/<int:id>/edit", methods=["POST", "GET"])
 def edit_loan_issuance(id):
-    edit_element = loan_issuance_list.query.get(id)
+    edit_element = Loan_issuance_list.query.get(id)
     if request.method == "POST":
         edit_element.loan_name = request.form["loan_name"]
         edit_element.client_passport_number = request.form["client_passport_number"]
@@ -122,7 +129,7 @@ def edit_loan_issuance(id):
 
 @app.route("/loan_issuance_list/<int:id>/del")
 def delete_loan_issuance(id):
-    Loan_issuance_list_delete_element = loan_issuance_list.query.get_or_404(id)
+    Loan_issuance_list_delete_element = Loan_issuance_list.query.get_or_404(id)
 
     try:
         db.session.delete(Loan_issuance_list_delete_element)
