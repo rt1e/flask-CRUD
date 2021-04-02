@@ -7,6 +7,7 @@
         <li><a class="active" href="#">Loan issuance list</a>
         <li><a href="#">List of clients</a>
         <li><a href="#">Credit list</a>
+        <li><a href="/register">Registration</a>
     </ul>
 </div>
 <a href="/add_loan_issuance" id="add-button">Add</a>
@@ -26,48 +27,52 @@
 {% endblock %}
 {% block content %}
 {% if Loan_issuance_list_table|length > 0 %}
-    <table>
-        <thead>
-            <tr>
-                <td>loan name</td>
-                <td>client passport number</td>
-                <td>add date</td>
-                <td>loan rate(%)</td>
-                <td>loan amount($)</td>
-                <td>loan term(mo.)</td>
-                <td>loan interest($)</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </thead>
-        <tbody>
+<table>
+    <thead>
+        <tr>
+            <td>loan name</td>
+            <td>client passport number</td>
+            <td>add date</td>
+            <td>loan rate(%)</td>
+            <td>loan amount($)</td>
+            <td>loan term(mo.)</td>
+            <td>loan interest($)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
         {% for el in Loan_issuance_list_table %}
-            <tr>
-                <td>{{ el.loan_name}}</td>
-                <td>{{ el.client_passport_number}}</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>{{ el.loan_amount}}</td>
-                <td>{{ el.loan_term}}</td>
-                <td>&nbsp;</td>
-                <td><a href="/loan_issuance_list/{{ el.id }}/edit" id="refresh"><img src="{{ url_for('static', filename='images/edit.png') }}"></td></a>
-                <td><button class="delete-button" id="{{ el.id }}" type="button" onclick="del_function(this.id)"><img src="{{ url_for('static', filename='images/delete.png') }}"></button></td>
-            </tr>
+        <tr>
+            <td>{{ el.loan_name}}</td>
+            <td>{{ el.client_passport_number}}</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>{{ el.loan_amount}}</td>
+            <td>{{ el.loan_term}}</td>
+            <td>&nbsp;</td>
+            <td><a href="/loan_issuance_list/{{ el.id }}/edit" id="refresh"><img
+                        src="{{ url_for('static', filename='images/edit.png') }}"></td></a>
+            <td><button class="delete-button" id="{{ el.id }}" type="button" onclick="del_function(this.id)"><img
+                        src="{{ url_for('static', filename='images/delete.png') }}"></button></td>
+        </tr>
         {% endfor %}
-        </tbody>
-    </table>
-    <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a class="active" href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
-    </div>
+    </tbody>
+</table>
+<div class="pagination">
+    <a href="#">&laquo;</a>
+    {% for number_page in range(1,total_pages+1) %}
+    {% if number_page==current_page %}
+    <a class="active" href="/loan_issuance_list/{{ current_page }}">{{current_page}}</a>
     {% else %}
-        <p style="text-align: center; font-size: 20px; font-weight: bold; margin-top: 5%">There are currently no loan applications.</p>
+    <a href="/loan_issuance_list/{{ number_page }}">{{number_page}}</a>
+    {% endif %}
+    {% endfor %}
+    <a href="#">&raquo;</a>
+</div>
+{% else %}
+<p style="text-align: center; font-size: 20px; font-weight: bold; margin-top: 5%">There are currently no loan
+    applications.</p>
 {% endif %}
 <div id="delete_block" style="display: none;">
     <div id="delete_block-title">
@@ -77,13 +82,16 @@
         <img src="{{ url_for('static', filename='images/warning.png') }}">
         <h4>Please confirm delete loan application</h4>
     </div>
-    <button class="delete_block-button" id="delete_block-bitton-Yes" type="button" onclick="document.getElementById('delete_block').style.display='none'"><a id="delete_block-bitton-Yes-href" style="color:white; text-decoration: none;" href="#">Yes</a></button>
-    <button class="delete_block-button" id="delete_block-bitton-Cancel" type="button" onclick="document.getElementById('delete_block').style.display='none'">Cancel</button>
+    <button class="delete_block-button" id="delete_block-bitton-Yes" type="button"
+        onclick="document.getElementById('delete_block').style.display='none'"><a id="delete_block-bitton-Yes-href"
+            style="color:white; text-decoration: none;" href="#">Yes</a></button>
+    <button class="delete_block-button" id="delete_block-bitton-Cancel" type="button"
+        onclick="document.getElementById('delete_block').style.display='none'">Cancel</button>
 </div>
 <script type="text/javascript">
-function del_function(clicked_id) {
-    document.getElementById('delete_block').style.display = 'block';
-    document.getElementById('delete_block-bitton-Yes-href').href = "/loan_issuance_list/"+clicked_id+"/del";
-}
+    function del_function(clicked_id) {
+        document.getElementById('delete_block').style.display = 'block';
+        document.getElementById('delete_block-bitton-Yes-href').href = "/loan_issuance_list/" + clicked_id + "/del";
+    }
 </script>
 {% endblock %}

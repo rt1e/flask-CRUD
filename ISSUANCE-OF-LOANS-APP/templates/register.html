@@ -1,0 +1,29 @@
+{% extends 'base_content.html' %}
+{% from "_formhelpers.html" import render_field %}
+{% block HorizontalNavigationBar %}
+<div class="Horizontal-Navigation-Bar">
+    <ul>
+        <li><a href="/">Introduction</a>
+        <li><a href="/loan_issuance_list">Loan issuance list</a>
+        <li><a href="#">List of clients</a>
+        <li><a href="#">Credit list</a>
+        <li><a class="active" id="Add_loan_issuance">Registration</a>
+    </ul>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container1">
+    <form class="form-registration" method=post>
+        <dl>
+            <div class="row">
+                {{ render_field(form.username) }}
+                {{ render_field(form.email) }}
+                {{ render_field(form.password) }}
+                {{ render_field(form.confirm) }}
+                {{ render_field(form.accept_tos) }}
+            </div>
+        </dl>
+        <p><input type=submit value=Register>
+    </form>
+</div>
+{% endblock %}

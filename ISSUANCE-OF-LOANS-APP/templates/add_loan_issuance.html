@@ -3,7 +3,7 @@
 {% block HorizontalNavigationBar %}
 <div class="Horizontal-Navigation-Bar">
     <ul>
-        <li><a href="index.html">Introduction</a>
+        <li><a href="/">Introduction</a>
         <li><a href="/loan_issuance_list">Loan issuance list</a>
         <li><a href="#">List of clients</a>
         <li><a href="#">Credit list</a>
@@ -15,78 +15,80 @@
 
 {% block content %}
 <form method="post">
-<div class="container1">
-    <div class="row">
-        <div class="col-25">
-            <label class="container1-label" for="Loan_name">Loan name</label>
-        </div>
-        <div class="col-75">
-            <select id="Loan_name" name="loan_name" autofocus>
-                <option value="Comfort+">Comfort+</option>
-                <option value="Best2.0">Best2.0</option>
-                <option value="SuperMaxi">SuperMaxi</option>
-            </select>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-25">
-            <label for="Client">Client</label>
-        </div>
-        <div class="col-75">
-            <select id="List_of_clients-select" name="client_passport_number">
-                <option value="Viktor Petrov">Viktor Petrov</option>
-                <option value="Petr Viktorovich">Petr Viktorovich</option>
-                <option value="Viktoria Pavlovna">Viktoria Pavlovna</option>
-            </select>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-25">
-            <label for="loan_amount">loan amount</label>
-        </div>
-        <div class="col-75">
-            <input type="number" id="loan_amount-input" name="loan_amount" placeholder="loan amount in $.." required autocomplete="on" max="10000" min="100">
-            <div class="loan_amount-input-class">
-                <p id="loan_amount-input-error"></p>
+    <div class="container1">
+        <div class="row">
+            <div class="col-25">
+                <label class="container1-label" for="Loan_name">Loan name</label>
+            </div>
+            <div class="col-75">
+                <select id="Loan_name" name="loan_name" autofocus>
+                    <option value="Comfort+">Comfort+</option>
+                    <option value="Best2.0">Best2.0</option>
+                    <option value="SuperMaxi">SuperMaxi</option>
+                </select>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-25">
-            <label for="loan_term">loan term</label>
-        </div>
-        <div class="col-75">
-            <input type="number" id="loan_term-input" name="loan_term" placeholder="loan term in months.." required autocomplete="on" min="1" max="60">
-            <div class="loan_term-input-class">
-                <p id="loan_term-input-error"></p>
+        <div class="row">
+            <div class="col-25">
+                <label for="Client">Client</label>
+            </div>
+            <div class="col-75">
+                <select id="List_of_clients-select" name="client_passport_number">
+                    <option value="Viktor Petrov">Viktor Petrov</option>
+                    <option value="Petr Viktorovich">Petr Viktorovich</option>
+                    <option value="Viktoria Pavlovna">Viktoria Pavlovna</option>
+                </select>
             </div>
         </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="loan_amount">loan amount</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="loan_amount-input" name="loan_amount" placeholder="loan amount in $.." required
+                    autocomplete="on" max="10000" min="100">
+                <div class="loan_amount-input-class">
+                    <p id="loan_amount-input-error"></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="loan_term">loan term</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="loan_term-input" name="loan_term" placeholder="loan term in months.." required
+                    autocomplete="on" min="1" max="60">
+                <div class="loan_term-input-class">
+                    <p id="loan_term-input-error"></p>
+                </div>
+            </div>
+        </div>
+        <div class="row Submit-form">
+            <input type="submit" value="Добавить" onclick="myFunction()">
+        </div>
     </div>
-    <div class="row Submit-form">
-        <input type="submit" value="Добавить" onclick="myFunction()">
-    </div>
-</div>
 </form>
 <script type="text/javascript">
-function myFunction() {
-    var inpObj = document.getElementById("add_date");
-    if (!inpObj.checkValidity()) {
-        document.getElementById("add_date-error").innerHTML = inpObj.validationMessage;
-    } else {
-        document.getElementById("add_date-error").innerHTML = "<span style='color:green'>" + "Input OK" + "</span>";
+    function myFunction() {
+        var inpObj = document.getElementById("add_date");
+        if (!inpObj.checkValidity()) {
+            document.getElementById("add_date-error").innerHTML = inpObj.validationMessage;
+        } else {
+            document.getElementById("add_date-error").innerHTML = "<span style='color:green'>" + "Input OK" + "</span>";
+        }
+        var inpObj = document.getElementById("loan_amount-input");
+        if (!inpObj.checkValidity()) {
+            document.getElementById("loan_amount-input-error").innerHTML = inpObj.validationMessage;
+        } else {
+            document.getElementById("loan_amount-input-error").innerHTML = "<span style='color:green'>" + "Input OK" + "</span>";
+        }
+        var inpObj = document.getElementById("loan_term-input");
+        if (!inpObj.checkValidity()) {
+            document.getElementById("loan_term-input-error").innerHTML = inpObj.validationMessage;
+        } else {
+            document.getElementById("loan_term-input-error").innerHTML = "<span style='color:green'>" + "Input OK" + "</span>";
+        }
     }
-    var inpObj = document.getElementById("loan_amount-input");
-    if (!inpObj.checkValidity()) {
-        document.getElementById("loan_amount-input-error").innerHTML = inpObj.validationMessage;
-    } else {
-        document.getElementById("loan_amount-input-error").innerHTML = "<span style='color:green'>" + "Input OK" + "</span>";
-    }
-    var inpObj = document.getElementById("loan_term-input");
-    if (!inpObj.checkValidity()) {
-        document.getElementById("loan_term-input-error").innerHTML = inpObj.validationMessage;
-    } else {
-        document.getElementById("loan_term-input-error").innerHTML = "<span style='color:green'>" + "Input OK" + "</span>";
-    }
-}
 </script>
 {% endblock %}

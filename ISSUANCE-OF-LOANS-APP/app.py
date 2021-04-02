@@ -2,23 +2,40 @@
 import secrets
 from datetime import datetime
 
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from passlib.hash import sha256_crypt
+from wtforms import BooleanField, Form, PasswordField, StringField, validators
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://{0}:{1}@{2}/{3}".format(
     secrets.dbuser, secrets.dbpass, secrets.dbhost, secrets.dbname
 )
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.secret_key = 'super secret key'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
+class Users(db.Model):
+
+    __tablename__ = "users"
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+
+    def __repr__(self):
+        return "<users %r>" % self.id
+
+
 class Loan_issuance_list(db.Model):
 
     __tablename__ = "loan_issuance_list"
+
     id = db.Column(db.Integer, primary_key=True)
     loan_name = db.Column(db.String(50), nullable=False)
     client_passport_number = db.Column(db.String(50), nullable=False)
@@ -33,6 +50,7 @@ class Loan_issuance_list(db.Model):
 class Clients_list(db.Model):
 
     __tablename__ = "clients_list"
+
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
@@ -54,6 +72,7 @@ class Clients_list(db.Model):
 class Loans_list(db.Model):
 
     __tablename__ = "loans_list"
+
     id = db.Column(db.Integer, primary_key=True)
     loan_name = db.Column(db.String(50), nullable=False)
     loan_rate = db.Column(db.Float, nullable=False)
@@ -75,15 +94,32 @@ def index():
 
 @app.route("/loan_issuance_list")
 def Loan_issuance_list_func():
+    return redirect("/loan_issuance_list/1")
+
+# SELECT * FROM loan_issuance_list
+# LIMIT 4 OFFSET 3;
+
+
+@app.route("/loan_issuance_list/<int:page>")
+def Loan_issuance_list_func_page(page):
     Loan_issuance_list_table = Loan_issuance_list.query.order_by(
         Loan_issuance_list.id.desc()
     ).all()
+    total_pages = len(Loan_issuance_list_table) / 6
+    if round(total_pages) < total_pages:
+        total_pages += 1
+        total_pages = round(total_pages)
+    else:
+        total_pages = round(total_pages)
+    last_entry_in_the_table = page * 6
+    first_entry_in_the_table = last_entry_in_the_table - 6
     return render_template(
-        "loan_issuance_list.html", Loan_issuance_list_table=Loan_issuance_list_table
+        "loan_issuance_list.html", Loan_issuance_list_table=Loan_issuance_list_table[first_entry_in_the_table:last_entry_in_the_table],
+        current_page=page, Loan_issuance_list_table_all=Loan_issuance_list_table, total_pages=total_pages
     )
 
 
-@app.route("/add_loan_issuance", methods=["POST", "GET"])
+@ app.route("/add_loan_issuance", methods=["POST", "GET"])
 def add_loan_issuance():
     if request.method == "POST":
         loan_name = request.form["loan_name"]
@@ -137,6 +173,30 @@ def delete_loan_issuance(id):
         return redirect("/loan_issuance_list")
     except:
         return "an error occurred while deleting the article"
+
+
+class RegistrationForm(Form):
+    username = StringField('Username', [validators.Length(min=4, max=25)])
+    email = StringField('Email Address', [validators.Length(min=6, max=35)])
+    password = PasswordField('New Password', [
+        validators.DataRequired(),
+        validators.EqualTo('confirm', message='Passwords must match')
+    ])
+    confirm = PasswordField('Repeat Password')
+    accept_tos = BooleanField('I accept the TOS', [validators.DataRequired()])
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm(request.form)
+    if request.method == 'POST' and form.validate():
+        user = Users(username=form.username.data, email=form.email.data,
+                     password=sha256_crypt.encrypt(form.password.data))
+        db.session.add(user)
+        db.session.commit()
+        flash('Thanks for registering')
+        return redirect(url_for('index'))
+    return render_template('register.html', form=form)
 
 
 if __name__ == "__main__":
